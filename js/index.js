@@ -72,10 +72,10 @@ funPic.forEach( fun =>{
 });
 
 //10 work on wheel???
-const wheel = document.querySelector("logo-heading")
-window.addEventListener("wheel", function() {
-    wheel.style.transform = "rotate("+window.pageYOffset+"deg)";
-});
+// const wheel = document.querySelector(".logo-heading")
+// window.addEventListener("wheel", function(event) {
+//     wheel.style.transform = "rotate("+window.pageYOffset+"deg)";
+// });
 
 
 
