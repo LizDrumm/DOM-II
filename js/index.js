@@ -34,7 +34,6 @@ button.forEach(btn =>{
 })
 });
 
-
 //5 keydown- turns background black 
 
 document.addEventListener('keydown', event => {
@@ -63,26 +62,64 @@ window.addEventListener("scroll", function() {
     scrollIt.style.transform = "rotate("+window.pageYOffset+"deg)";
 });
 
-//9 double click-- make the 'lets go!' picture disappear when you double click
-const funPic = document.querySelectorAll(".content-section img")
-funPic.forEach( fun =>{
-    fun.addEventListener('dblclick',function(event){
+//9 double click-- make the 'lets go!' picture disappear when you double click //nested funcion// stop prop.
+const removeSection = document.querySelectorAll(".content-section")
+removeSection.forEach( remove =>{
+    remove.addEventListener('dblclick',function(event){
         event.target.style.display= 'none';
+})
+  
+});
+//stops the pictures from removing with double click 
+const keepPic = document.querySelectorAll(".content-section .img-content")
+keepPic.forEach( keep =>{
+   keep.addEventListener('dblclick',function(event){
+       event.stopPropagation()
 })
 });
 
-//10 work on wheel???
-// const wheel = document.querySelector(".logo-heading")
-// window.addEventListener("wheel", function(event) {
-//     wheel.style.transform = "rotate("+window.pageYOffset+"deg)";
-// });
+
+//oncopy 
+
+const topPara = document.querySelector('.intro')
+//creating the p tag that will display the text
+const top = document.createElement ('input')
+top.setAttribute ('id','input-text')
+//document.getElementById('input-text').value = "seclected text"
+//const textSelected = document.getElementById('input-text').value 
+topPara.appendChild(top)
+//top.appendChild(textSelected)
+
+const head = document.querySelector ('h2')
+head.classList.add ('top-header')
+
+topPara.addEventListener("oncopy", function(){
+    document.getElementById("top").innerHTML = "You copied text!"
+
+})
+
+
+
+//10 wheel
+const wheel = document.querySelector(".logo-heading")
+ window.addEventListener("wheel", function(event) {
+    wheel.style.transform = "rotate("+window.pageYOffset+"deg)";
+ });
+
+
+
+// * [ ] Stop the navigation items from refreshing the page by 
+//using `preventDefault()`
+
+const nav1 = document.querySelector('.nav-link')
+ nav1.addEventListener('click', function (event) {
+  event.preventDefault()
+ });
 
 
 
 
-//after 10 functions 
-// [ ] Nest two similar events somewhere in the site and prevent the event propagation properly. Remember not all event types bubble.
-// * [ ] Stop the navigation items from refreshing the page by using `preventDefault()`
+
 
 
 
